@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
+import BookSearch from './booksearch';
 
 class Books extends Component{
     render(){
         return(
-            <div></div>
+            <div>
+                <BookSearch />
+            </div>
         );
     }
 }

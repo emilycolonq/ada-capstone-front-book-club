@@ -1,15 +1,17 @@
 import React from 'react';
+import Books from "./books/books";
 
 const Dashboard = () => {
     return (
     <div
         style={{
             display: 'flex',
-            justifyContent: 'Center',
-            alignItems: 'Center',
+            justifyContent: 'Left',
+            // alignItems: 'Center',
             height: '100vh'
     }}>
-        <h1>Future dashboard!</h1>
+        <h1>My Dashboard</h1>
+        <Books/>
     </div>
     );
 };

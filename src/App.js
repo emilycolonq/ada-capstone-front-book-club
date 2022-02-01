@@ -3,8 +3,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import GoogleBooksSearch from "./components/searchbar/googlebooksearch";  
 import Navbar from "./components/navbar/navbar.js";
-import Home from "./pages/home";
-import Dashboard from "./pages/dashboard";
+import Home from "./components/home";
+import Dashboard from "./components/dashboard";
+// import Books from "./components/books/books.js";
 
 
 function App() {
