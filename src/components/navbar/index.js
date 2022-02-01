@@ -6,10 +6,10 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Dashboard from './pages/dashboard';
 
 ReactDOM.render(
-    <Router>
-        <Routes>
-            <Route path= '/' element= {<App/>}/>
-            <Route path= '/dashboard' element= {<Dashboard/>}/>
-        </Routes>
-    </Router>,
+        <Router>
+            <Routes>
+                <Route path= '/' element= {<App/>}/>
+                <Route path= '/dashboard' element= {<Dashboard/>}/>
+            </Routes>
+        </Router>,
 document.getElementById('root'));

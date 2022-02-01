@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 function GoogleBooksSearch() {  
     const [book, setBook] = useState("");  
     const [result, setResult] = useState([]);  
-    const [apiKey, setApiKey] = useState("AIzaSyCxlDeN4CaPAX4Fx3oe9LBariRZBrYM71I")  
+    const [apiKey, setApiKey] = useState()  
 
     function handleChange(event) {  
         const book = event.target.value;
