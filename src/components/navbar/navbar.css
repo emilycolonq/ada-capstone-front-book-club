@@ -1,0 +1,29 @@
+.sum{
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+}
+
+.navbarLogo{
+    margin: 15px;
+    color: pink;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.navLinks{
+    display: flex;
+    margin: 25px;
+}
+
+a {
+    display: flex;
+    margin: 0 1.5rem;
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+}
+
+
