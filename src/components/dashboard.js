@@ -17,8 +17,6 @@ const Dashboard = () => {
             // alignItems: 'Center',
             height: '100vh'
         }}>
-
-    
         <Sidebar />
         <Books/>
     </div>

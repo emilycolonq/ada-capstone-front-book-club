@@ -14,7 +14,6 @@ function Home() {
                 backgroundSize: 'Cover',
                 backgroundRepeat: 'NoRepeat',
                 width: '100%',
-                height: '100vh'
         }}>
             <h1>Future home page!</h1>
         </div>
