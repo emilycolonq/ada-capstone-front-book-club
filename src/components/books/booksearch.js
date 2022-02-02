@@ -2,11 +2,11 @@ import React, { useState } from "react";
 // import axios from 'axios';  
 // import { Card } from 'react-bootstrap';  
 
-const BookSearch = () => {
+const BookSearch = (props) => {
     return(
         <div className = "book-search">
-            <form action = "">
-                <input type = "text"/>
+            <form onSubmit= {props.searchBook} action = "">
+                <input onChange={props.handleSearch} type = "text"/>
                 <button type = "submit">Search</button>
             </form>
         </div>
