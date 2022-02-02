@@ -3,18 +3,18 @@ import React, {useState} from 'react';
 // import './Form.css';
 
 const NewGroupForm = (props) => {
-    const baseData = {title: '', user: ''};
+    const baseData = {name: '', user: ''};
     const [formData, setFormData] = useState(baseData);
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        props.onGroupSubmit({title: formData.title, user: formData.user});
+        props.onGroupSubmit({name: formData.name, user: formData.user});
         setFormData(baseData);
     }
         
-    const titleChange = (event) => {
-        setFormData({...formData, title: event.target.value});
+    const nameChange = (event) => {
+        setFormData({...formData, name: event.target.value});
     }
 
     // const ownerChange = (event) => {
@@ -27,8 +27,8 @@ const NewGroupForm = (props) => {
             <form onSubmit={handleSubmit}>
             {/* <fieldset> */}
                 <label>
-                <p>Group Title: </p>
-                <input type="text" name="title" value={formData.title} onChange={titleChange}/>
+                <p>Group Name: </p>
+                <input type="text" name="name" value={formData.title} onChange={nameChange}/>
                 </label>
                 {/* <label>
                 <p> Owner: </p>
