@@ -1,6 +1,6 @@
 import React from 'react';
-import Login from '../books/login';
-import Logout from '../books/logout';
+import Login from '../logInOut/login';
+import Logout from '../logInOut/logout';
 import {
     Nav,
     NavLink,

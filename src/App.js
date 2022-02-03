@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/navbar.js";
 import Home from "./components/home";
 import Dashboard from "./components/dashboard";
-import Login from './components/books/login';
-import Logout from './components/books/logout';
+// import Login from './components/logInOut/login';
+// import Logout from './components/logInOut/logout';
 
 
 function App() {
