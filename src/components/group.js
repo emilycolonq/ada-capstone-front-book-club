@@ -1,41 +1,29 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
-// import Card from './Card';
+import BookCard from './books/bookcard';
+import PagesProgressBar from './pagesprogress';
 
-class Group extends Component {
-    formSubmit = (event) => {
-        event.preventDefault()
-        var data = new FormData(event.target)
-        let formObject = Object.fromEntries(data.entries())
-    }
-    render() {
-        return (
+
+const Group = (props) => {
+    
+    // const selectGroup = () => {
+    //     const newSelected = {
+    //         name: props.group.name,
+    //         group_id: props.id
+    //     }
+    //     props.current(newSelected);
+    // } 
+    return (
         <div>
-            <form onSubmit={this.formSubmit}>
-            <label>Name</label>
-            <input name="name" placeholder="name" />
-            <label>Email</label>
-            <input type="email" name="email" />
-            <input type="submit" />
-            </form>
+            <h1 className='group-name'>GROUP NAME SUBMIT</h1>
+            <h3 className="page-progress">Progress Bar</h3>
+                <PagesProgressBar bgcolor="orange" progress='30'  height={30} />
+                <PagesProgressBar bgcolor="red" progress='60'  height={30} />
+                <PagesProgressBar bgcolor="#99ff66" progress='50'  height={30} />
         </div>
-        )
-    }
+        // <h1 className="group-item" onClick={selectGroup}> {props.group.name} </h1>
+    )
+
 }
-
-// const Group = (props) => {
-//     const selectGroup = () => {
-//         const newSelected = {
-//             name: props.group.name,
-//             // owner: props.board.owner,
-//             group_id: props.id
-//         }
-//         props.current(newSelected);
-//     } 
-//     return (
-//         <li className="group-item" onClick={selectGroup}> {props.group.name} </li>
-//     )
-
-// }
 
 export default Group;
