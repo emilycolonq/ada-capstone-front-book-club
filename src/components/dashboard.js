@@ -2,7 +2,7 @@ import React from 'react';
 import Books from "./books/books";
 import Sidebar from './sidebar';
 import Group from './group';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 
 
 
@@ -18,6 +18,7 @@ const Dashboard = () => {
             height: '100vh'
         }}>
         <Sidebar />
+        <Outlet />
         <Books/>
     </div>
     );

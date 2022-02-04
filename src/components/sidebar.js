@@ -15,7 +15,6 @@ const Sidebar = () => {
               </Link>
             </li>
           </ul>
-          <Outlet />
         </div>
       </div>
     </div>
