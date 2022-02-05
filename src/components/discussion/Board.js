@@ -1,10 +1,11 @@
 import React from "react";
-import { Routes, Route, Link, Outlet } from "react-router-dom";
+import Message from "./Message";
 
-const Board = () => {
+const Board = (props) => {
   return (
     <div>
-      <h4>Discussion Thread test</h4>
+      <h4>Discussion Thread Test</h4>
+      <Message />
     </div>
   );
 };
