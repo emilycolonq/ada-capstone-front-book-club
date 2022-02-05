@@ -5,6 +5,7 @@ import Navbar from "./components/navbar/navbar.js";
 import Home from "./components/home";
 import Dashboard from "./components/dashboard";
 import Group from "./components/group";
+import Board from "./components/discussion/Board";
 // import Login from './components/logInOut/login';
 // import Logout from './components/logInOut/logout';
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />}>
             <Route path="group" element={<Group />} />
+            <Route path="board" element={<Board />} />
           </Route>
           <Route path="/login" />
           <Route path="/logout" />
