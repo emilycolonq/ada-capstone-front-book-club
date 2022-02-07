@@ -1,6 +1,6 @@
 import React from 'react';
-import Login from '../logInOut/login';
-import Logout from '../logInOut/logout';
+// import Login from '../logInOut/login';
+// import Logout from '../logInOut/logout';
 import {
     Nav,
     NavLink,
@@ -15,8 +15,8 @@ const Navbar = () => {
                 <h1 className= "navbarLogo">Bookclub</h1>
                 <NavLink to='/' activeStyle>Home</NavLink>
                 <NavLink to='/dashboard' activeStyle>Dashboard</NavLink>
-                <NavLink to='/login' activeStyle>{Login}</NavLink>
-                <NavLink to='/logout' activeStyle>{Logout}</NavLink>
+                {/* <NavLink to='/login' activeStyle>{Login}</NavLink>
+                <NavLink to='/logout' activeStyle>{Logout}</NavLink> */}
             </NavMenu>
         </Nav>
     );
