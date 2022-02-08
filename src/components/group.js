@@ -15,7 +15,6 @@ const Group = (props) => {
     // } 
     return (
         <div>
-            <h1 className='group-name'>GROUP NAME SUBMIT</h1>
             <h3 className="page-progress">Progress Bar</h3>
                 <PagesProgressBar bgcolor="yellow" progress='30'  height={30} />
                 <PagesProgressBar bgcolor="orange" progress='60'  height={30} />

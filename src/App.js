@@ -5,12 +5,12 @@ import Navbar from "./components/navbar/navbar.js";
 import Home from "./components/home";
 import Dashboard from "./components/dashboard";
 import Group from "./components/group";
-// import Login from './components/logInOut/login';
-// import Logout from './components/logInOut/logout';
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 function App() {
   return (
-    <div className="Logs">
+    <div className="Logs" class="container-fluid">
       <Router>
         <Navbar />
         <Routes>

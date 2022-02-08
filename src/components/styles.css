@@ -39,35 +39,26 @@
 }
 
 
-
-
-
-/* .sum{
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
+.login{
+    grid-column-start: 1;
+    grid-row-start: 2;
+    width: 300px;
+    background-size:cover;
+    border-style:groove;
+    border-color: black;
+    border-width: 5px;
+    box-shadow: 5px 10px rgb(168, 161, 119);
 }
 
-.navbarLogo{
-    margin: 15px;
-    color: white;
-    font-size: 30px;
-    font-weight: 700;
-}
 
-.navLinks{
-    display: flex;
-    margin: 25px;
-}
-
-a {
-    display: flex;
-    margin: 0 1.5rem;
-    text-decoration: none;
-    color: white;
-    font-weight: bolder;
-} */
-
+/* .search-books {
+    grid-column-start: 1;
+    grid-row-start: 3;
+    background-size:cover;
+    border-style: groove;
+    border-color:black;
+    border-width: 5px;
+    padding: 5px;
+    box-shadow: 5px 10px rgb(168, 161, 119); */
+/* } */
 
