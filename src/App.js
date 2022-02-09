@@ -5,16 +5,14 @@ import Navbar from "./components/navbar/navbar.js";
 import Home from "./components/home";
 import Dashboard from "./components/dashboard";
 import Group from "./components/group";
-import DiscussionThread from "./components/discussion/DiscussionThread";
-// import Login from './components/logInOut/login';
-// import Logout from './components/logInOut/logout';
+import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
   //   DiscussionThread.js State and Event Handlers (messagesByDiscussionId: an object of arrays where the key is discussion_id)
   const [messagesByDiscussionId, setMessagesByDiscussionId] = useState({});
 
   return (
-    <div className="Logs">
+    <div className="Logs" class="container-fluid">
       <Router>
         <Navbar />
         <Routes>

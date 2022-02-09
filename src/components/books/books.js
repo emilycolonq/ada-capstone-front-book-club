@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import BookSearch from './booksearch';
 import request from 'superagent';
 import BookList from './booklist';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Books extends Component{
     constructor(props){
@@ -31,7 +32,11 @@ class Books extends Component{
         return(
             <div>
                 <BookSearch searchBook= {this.searchBook} handleSearch = {this.handleSearch}/>
-                <BookList books={this.state.books} />
+                <div className="container-fluid movie-app">
+                    <div className='row'>
+                        <BookList books={this.state.books} />
+                    </div>
+                </div>
             </div>
         );
     }

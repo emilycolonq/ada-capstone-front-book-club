@@ -1,5 +1,5 @@
 import React from 'react';
-import NewGroupForm from '../groups/NewGroupForm';
+import NewGroupForm from './NewGroupForm';
 import Popup from '../popup';
 import { useState } from 'react';
 
@@ -15,8 +15,8 @@ const BookCard = (props) => {
             <img src={props.image} alt=""/>
             <div className="desc">
                 <h2>{props.title}</h2>
-                <h3>{props.author}</h3>
-                <p>{props.published}</p>
+                <p>{props.author}</p>
+                <p>Pages:{props.page}</p>
             </div>
             <div>
                 <input

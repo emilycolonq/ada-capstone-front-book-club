@@ -9,14 +9,12 @@ import {
     
 const Navbar = () => {
     return (
-        <Nav>
-            <Bars />
+        <Nav classname ="justify-content-center">
+            <Bars bg="dark" variant="dark" expand="lg" sticky="top"/>
             <NavMenu>
-                <h1 className= "navbarLogo">Bookclub</h1>
+                <h1 classname= "navbar navbar-expand-lg navbar-light bg-light fixed-top py-lg-0 ">Bookclub</h1>
                 <NavLink to='/' activeStyle>Home</NavLink>
                 <NavLink to='/dashboard' activeStyle>Dashboard</NavLink>
-                {/* <NavLink to='/login' activeStyle>{Login}</NavLink>
-                <NavLink to='/logout' activeStyle>{Logout}</NavLink> */}
             </NavMenu>
         </Nav>
     );
