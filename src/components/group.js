@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import PropTypes from 'prop-types';
-import BookCard from './books/bookcard';
 import PagesProgressBar from './pagesprogress';
 import { Row, Col } from 'react-bootstrap';
 
