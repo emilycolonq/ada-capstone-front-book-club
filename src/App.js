@@ -25,7 +25,6 @@ function App() {
               path="group/discussion"
               element={
                 <DiscussionThread
-                  discussion={discussion}
                   messagesByDiscussionId={messagesByDiscussionId}
                 />
               }

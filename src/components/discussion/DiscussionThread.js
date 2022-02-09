@@ -15,12 +15,7 @@ const DiscussionThread = (props) => {
         {/* {props.messagesByDiscussionId[props.discussion?props.discussion_id]?.map((message)=>{ */}
         return(
         <div className="message">
-          <Message
-            key={message.message_id}
-            message={message}
-            deleteMessage={props.deleteMessage}
-            editMessage={props.editMessage}
-          />
+          <Message />
         </div>
         ){/* })} */}
       </main>
