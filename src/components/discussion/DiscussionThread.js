@@ -1,7 +1,7 @@
 import React from "react";
 import Message from "./Message";
 
-// This is the actual discussion thread. Every time a discussion title is submitted via CreateThread, this will be generated.
+// This is the actual discussion thread. Every time a discussion title is submitted via NewDiscussionForm, this will be generated.
 
 // This will also hold instances of Message. Every time a message is submitted via CreateMessage, an instance of Message populates Discussion Thread.
 

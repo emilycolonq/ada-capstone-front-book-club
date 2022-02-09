@@ -8,4 +8,4 @@ const CreateMessage = () => {
   );
 };
 
-export default CreateMessage;
+export default NewMessageForm;
