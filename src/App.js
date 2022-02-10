@@ -1,18 +1,33 @@
 import "./App.css";
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { useRoutes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
+import Group from "./components/group";
+import Home from "./components/home";
+import Navbar from "./components/navbar/navbar.js";
+import Dashboard from "./components/dashboard";
 import Bulletin from "./components/discussion/Bulletin";
-import BookClubRoutes from "./routes/BookClubRoutes";
+import DiscussionThread from "./components/discussion/DiscussionThread";
 
 function App() {
-  // Bulletin
+  const bookClubRoutes = useRoutes([
+    { path: "/", element: <Home /> },
+    {
+      path: "/dashboard",
+      element: <Dashboard />,
+      children: [
+        { path: "group", element: <Group /> },
+        { path: "group/discussion", element: <DiscussionThread /> },
+      ],
+    },
+    { path: "/login" },
+    { path: "/logout" },
+  ]);
 
   return (
     <div className="Logs" class="container-fluid">
-      <BookClubRoutes />
-      <Bulletin />
+      <Navbar />
+      {bookClubRoutes}
     </div>
   );
 }

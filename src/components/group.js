@@ -19,9 +19,11 @@ const Group = (props) => {
           <h3 className="page-progress">Progress Bar</h3>
           <PagesProgressBar bgcolor="yellow" progress="30" height={30} />
           <PagesProgressBar bgcolor="orange" progress="60" height={30} />
-          <h3 className="bulletin">Discussions</h3>
-          <Bulletin />
         </Col>
+        <Bulletin
+          bulletinHeader="Discussions"
+          bulletinTitle="Need to update every time a new discussion is created"
+        />
       </Row>
     </div>
     // <h1 className="group-item" onClick={selectGroup}> {props.group.name} </h1>
