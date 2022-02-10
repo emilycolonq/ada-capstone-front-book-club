@@ -4,7 +4,7 @@ import React from "react";
 const Message = (props) => {
   return (
     <div className="message">
-      <section className="message-text">{props.message.message}</section>
+      <section className="message-text">Message Test</section>
       <h4>Message test</h4>
       <section id="options">
         <button

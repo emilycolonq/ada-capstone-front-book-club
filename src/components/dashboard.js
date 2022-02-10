@@ -27,7 +27,6 @@ const Dashboard = () => {
       {/* <Stack direction="horizontal" gap={3}>  */}
       <Sidebar />
       <Outlet />
-
       <Container>
         <Row className="justify-content-md-center">
           <Col md={{ span: 6, offset: 0 }} sm={6} xs={6}>

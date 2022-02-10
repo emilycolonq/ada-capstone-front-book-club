@@ -6,7 +6,8 @@ import Home from "./components/home";
 import Dashboard from "./components/dashboard";
 import Group from "./components/group";
 import "bootstrap/dist/css/bootstrap.css";
-import DiscussionThread from "./discussion/DiscussionThread";
+import Bulletin from "./components/discussion/Bulletin";
+import DiscussionThread from "./components/discussion/DiscussionThread";
 
 function App() {
   //   DiscussionThread.js State and Event Handlers (messagesByDiscussionId: an object of arrays where the key is discussion_id)
@@ -20,14 +21,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />}>
             <Route path="group" element={<Group />} />
-            <Route
-              path="group/discussion"
-              element={
-                <DiscussionThread
-                  messagesByDiscussionId={messagesByDiscussionId}
-                />
-              }
-            />
+            <Route path="group/discussion" element={<DiscussionThread />} />
+            {/* NOTE: path="group/discussion" needs to be changed to group/discussion/:id to link to discussion by discussion_id */}
           </Route>
           <Route path="/login" />
           <Route path="/logout" />

@@ -9,16 +9,9 @@ const DiscussionThread = (props) => {
   return (
     <div>
       <header>
-        <h2 className="discussionTitle"> {props.subject}</h2>
+        <h2 className="discussionTitle"> Discussion Thread Test</h2>
       </header>
-      <main className="discussionMain">
-        {/* {props.messagesByDiscussionId[props.discussion?props.discussion_id]?.map((message)=>{ */}
-        return(
-        <div className="message">
-          <Message />
-        </div>
-        ){/* })} */}
-      </main>
+      <Message />
     </div>
   );
 };
