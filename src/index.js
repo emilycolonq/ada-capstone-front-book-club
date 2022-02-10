@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import BookClubRoutes from "./routes/BookClubRoutes";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import Dashboard from "./components/dashboard";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BookClubRoutes />
   </React.StrictMode>,
   document.getElementById("root")
 );
