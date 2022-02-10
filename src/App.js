@@ -18,20 +18,12 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />}>
             <Route path="group" element={<Group />} />
           </Route>
-          <Route path="/login" />
-          <Route path="/logout" />
+          {/* <Route path="/login" />
+          <Route path="/logout" /> */}
         </Routes>
       </Router>
     </div>
   );
 }
-
-// function App() {
-//   return (
-//       <div className= 'App'>
-//         <Navbar />
-//       </div>
-//   );
-// }
 
 export default App;
