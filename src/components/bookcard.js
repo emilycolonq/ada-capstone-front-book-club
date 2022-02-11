@@ -1,6 +1,6 @@
 import React from 'react';
 import NewGroupForm from './NewGroupForm';
-import Popup from '../popup';
+import Popup from './popup';
 import { useState } from 'react';
 
 const BookCard = (props) => {
