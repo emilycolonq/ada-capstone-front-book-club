@@ -1,22 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import FormModal from "../FormModal";
 
 // This will have links to each DiscussionThread.
 
 const Bulletin = (props) => {
+  const bulletinLinksList = props.discussions.map((discussion) => {
+    return (
+      <li className="bulletinListItem">
+        <Link to={`discussion/${discussion.id}`} activeStyle>
+          {discussion.subject}
+        </Link>
+      </li>
+    );
+  });
+  console.log(bulletinLinksList);
   return (
     <div>
       <header>
         <h2>{props.bulletinHeader}</h2>
       </header>
-      <ul className="bulletinList">
-        <li className="bulletinListItem">
-          <Link to="discussion" activeStyle>
-            {props.bulletinTitle}
-          </Link>
-          {/* NOTE: to="discussion" needs to be changed to discussion/:id to link to discussion by discussion_id */}
-        </li>
-      </ul>
+      <main>
+        <FormModal
+          header={props.startNewDiscussion}
+          body={props.newDiscussionForm}
+          submitHandler={props.newSubjectHandler}
+        />
+        <ul className="bulletinList">{bulletinLinksList}</ul>
+      </main>
     </div>
   );
 };

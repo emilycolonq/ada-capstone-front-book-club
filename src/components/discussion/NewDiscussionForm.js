@@ -1,23 +1,80 @@
-import React from "react";
+import React, { useState } from "react";
+import Form from "react-bootstrap/Form";
 
-const NewDiscussionForm = () => {
+const NewDiscussionForm = (props) => {
+  const [userInputSubject, setUserInputSubject] = useState("");
+  const [userInputSubjectIsValid, setUserInputSubjectIsValid] = useState(true);
+
+  const onSubmitDiscussionForm = (event) => {
+    event.preventDefault();
+    const axios = require("axios");
+    console.log("is this getting called?");
+
+    axios
+      .post(
+        "https://ada-capstone-book-club.herokuapp.com/adabookclub/discussions/",
+        {
+          subject: userInputSubject,
+          group_id: 1, // This is currently hard-coded. TODO: GET from Group
+        }
+      )
+      .then((response) => {
+        console.log("response:", response);
+        console.log("response data:", response.data);
+        props.setDiscussions([...props.discussions, response.data]);
+      })
+      .catch((error) => {
+        console.log("error:", error);
+        console.log("error response:", error.response);
+      })
+      // finally always runs
+      .finally(() => {
+        console.log("finally done!");
+      });
+  };
+
+  const onChangeUserInputSubjectStateHandler = (event) => {
+    event.preventDefault();
+    const inputSubject = event.target.value;
+
+    setUserInputSubject(inputSubject);
+
+    if (inputSubject.trim() > 0 && inputSubject.trim().length <= 100) {
+      setUserInputSubjectIsValid(true);
+    } else {
+      setUserInputSubjectIsValid(false);
+      return;
+    }
+
+    const newSubject = {
+      subject: userInputSubjectIsValid,
+    };
+
+    onSubmitDiscussionForm(newSubject);
+    setUserInputSubject("");
+    setUserInputSubjectIsValid(true);
+  };
+
   return (
     <>
-      <div>
-        <h2>Start A Discussion</h2>
-        <form onSubmit={props.handleSubmit}>
-          <label>
-            <p>Subject: </p>
-            <input
-              type="text"
-              name="name"
-              value={props.discussionThread.title}
-              onChange={props.nameChange}
-            />
-          </label>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+      {" "}
+      <Form id="new-discussion-form">
+        <Form.Group>
+          <Form.Label>Subject: </Form.Label>
+          <Form.Control
+            type="text"
+            onChange={onChangeUserInputSubjectStateHandler}
+            value={userInputSubject}
+            placeholder="Thoughts on Chapter 1"
+          />
+        </Form.Group>
+        <input
+          type="submit"
+          value="Submit"
+          form="new-discussion-form"
+          onClick={onSubmitDiscussionForm}
+        ></input>
+      </Form>
     </>
   );
 };
