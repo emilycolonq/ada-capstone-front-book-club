@@ -9,7 +9,7 @@ const DiscussionThread = (props) => {
   return (
     <div>
       <header>
-        <h2 className="discussionTitle"> Discussion Thread Test</h2>
+        <h2 className="discussionTitle">Discussion Thread Test</h2>
       </header>
       <Message />
     </div>

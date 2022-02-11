@@ -7,6 +7,7 @@ import Home from "./components/home";
 import Navbar from "./components/navbar/navbar.js";
 import Dashboard from "./components/dashboard";
 import DiscussionThread from "./components/discussion/DiscussionThread";
+import Sidebar from "./components/sidebar";
 
 function App() {
   const bookClubRoutes = useRoutes([
@@ -16,7 +17,11 @@ function App() {
       element: <Dashboard />,
       children: [
         { path: "group", element: <Group /> },
-        { path: "group/discussion", element: <DiscussionThread /> },
+        {
+          path: "group/discussions",
+          element: <DiscussionThread />,
+          children: [{ path: ":discussionId", element: <DiscussionThread /> }],
+        },
       ],
     },
     { path: "/login" },

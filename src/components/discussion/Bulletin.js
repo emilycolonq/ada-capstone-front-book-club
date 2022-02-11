@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import FormModal from "../FormModal";
 
 // This will have links to each DiscussionThread.
@@ -8,7 +8,7 @@ const Bulletin = (props) => {
   const bulletinLinksList = props.discussions.map((discussion) => {
     return (
       <li className="bulletinListItem">
-        <Link to={`discussion/${discussion.id}`} activeStyle>
+        <Link to={`discussions/${discussion.id}`} activeStyle>
           {discussion.subject}
         </Link>
       </li>
@@ -27,6 +27,7 @@ const Bulletin = (props) => {
           submitHandler={props.newSubjectHandler}
         />
         <ul className="bulletinList">{bulletinLinksList}</ul>
+        <Outlet />
       </main>
     </div>
   );
