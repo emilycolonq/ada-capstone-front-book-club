@@ -18,11 +18,9 @@ export default function Group() {
         setScore(prevScore => Math.max(0, Math.min(prevScore, maxScore)));
     }, [maxScore]);
 
-    const fetchData = correct => {
-        correct && setScore(score => score + 1);
+    const fetchData = () => {
+        setScore(score => score + 1);
     };
-
-    const randomTrueFalse = () => Math.random() >= 0.333;
 
     const scoreLabel = `${score}/${maxScore}`;
     const percentCorrect = (score * 100) / maxScore;
@@ -45,9 +43,10 @@ export default function Group() {
                     <div>Percentage finished</div>
                     <PercentBar label={percentCorrectLabel} percent={percentCorrect} />
 
-                    <button type="button" onClick={() => fetchData(randomTrueFalse())}>
-                        Correct or Not?
+                    <button type="button" onClick={() => fetchData()}>
+                        Add Page
                     </button>
+                    
                 </Col>
             </Row>
         </div>
