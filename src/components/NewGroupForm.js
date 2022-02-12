@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 // import PropTypes from 'prop-types';
 // import './Form.css';
+import Group from './group';
 
 const NewGroupForm = (props) => {
     const baseData = {name: '', user: ''};
@@ -38,7 +39,8 @@ const NewGroupForm = (props) => {
             {/* </fieldset> */}
             <button type="submit">Submit</button>
             </form>
-            </div>
+            <p><Group title = {props.title} author= {props.author} page = {props.page}/></p>
+        </div>
         );
     }
 

@@ -1,17 +1,24 @@
 import React from 'react';
+import GroupPage from './grouppage';
 
 
 const Group = (props) => {
     const selectGroup = () => {
-        const newGroup = {
+        const newSelected = {
             name: props.group.name,
             user: props.board.user,
-            group_id: props.id
+            group_id: props.id,
+            title: props.title, 
+            author: props.author,
+            page: props.page
         }
         props.current(newSelected);
     } 
     return (
-        <li className="group-item" onClick={selectGroup}> {props.group.name} </li>
+        <div>
+            <li className="group-item" onClick={selectGroup}> {props.group.name} </li>
+            <p><GroupPage title = {props.title} author= {props.author} page = {props.page}/></p>
+        </div>
     )
 }
 

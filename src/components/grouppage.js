@@ -5,12 +5,13 @@ import { Row, Col } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.css";
 import ProgressBar from "react-bootstrap/ProgressBar";
+const axios = require('axios');
 
 
 
 const MAX_CORRECT = 150;
 
-export default function GroupPage() {
+const GroupPage = (props) => {
     const [maxScore] = useState(MAX_CORRECT);
     const [score, setScore] = useState(0);
 
@@ -42,16 +43,21 @@ export default function GroupPage() {
                     />
                     <div>Percentage finished</div>
                     <PercentBar label={percentCorrectLabel} percent={percentCorrect} />
-
                     <button type="button" onClick={() => fetchData()}>
                         Add Page
                     </button>
-                    
+                </Col>
+            </Row>
+            <Row className="justify-content-md-center">
+                <Col md={{ span: 6, offset: 0 }} sm ={6} xs={6}>
+                    <p>{props.title} by {props.author}</p>
                 </Col>
             </Row>
         </div>
     );
 }
+
+export default GroupPage;
 
 // const Group = (props) => {
     
