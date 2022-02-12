@@ -4,16 +4,16 @@ import React from "react";
 const User = (props) => {
     const selectUser = () => {
         const newSelected = {
-            username: props.group.username,
+            username: props.username,
             user_id: props.id,
         }
         props.current(newSelected);
     } 
     return (
-        <div>
-            <li className="group-item" onClick={selectUser}> {props.group.username} </li>
+        <div className="col-md-12">
+            <h1>Welcome, {props.username}</h1>
         </div>
-    )
+    );
 }
 
 export default User;
