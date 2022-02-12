@@ -39,7 +39,6 @@ const NewGroupForm = (props) => {
             {/* </fieldset> */}
             <button type="submit">Submit</button>
             </form>
-            <p><Group title = {props.title} author= {props.author} page = {props.page}/></p>
         </div>
         );
     }
