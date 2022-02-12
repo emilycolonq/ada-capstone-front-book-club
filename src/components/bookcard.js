@@ -25,7 +25,7 @@ const BookCard = (props) => {
                 onClick={togglePopup}/>
                 {isOpen && <Popup
                 content={
-                    <p><NewGroupForm /></p>
+                    <p><NewGroupForm title = {props.title} author= {props.author} page = {props.page}/></p>
                 }
                 handleClose={togglePopup}
                 />}

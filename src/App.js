@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/navbar.js";
 import Home from "./components/home";
 import Dashboard from "./components/dashboard";
-import Group from "./components/group";
+import GroupPage from "./components/grouppage";
 import 'bootstrap/dist/css/bootstrap.css';
 
 
@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />}>
-            <Route path="group" element={<Group />} />
+            <Route path="group" element={<GroupPage />} />
           </Route>
           {/* <Route path="/login" />
           <Route path="/logout" /> */}

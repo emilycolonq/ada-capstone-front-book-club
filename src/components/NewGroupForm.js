@@ -25,10 +25,11 @@ const NewGroupForm = (props) => {
         <div >
             <h3>Create Group</h3>
             <form onSubmit={handleSubmit}>
-            {/* <fieldset> */}
                 <label>
-                <p>Group Name: </p>
-                <input type="text" name="name" value={formData.title} onChange={nameChange}/>
+                    <h3>{props.title} by {props.author}</h3>
+                    <p>Pages:{props.page}</p>
+                    <p>Group Name: </p>
+                    <input type="text" name="name" value={formData.title} onChange={nameChange}/>
                 </label>
                 {/* <label>
                 <p> Owner: </p>
