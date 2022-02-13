@@ -4,20 +4,19 @@ import React from "react";
 const Message = (props) => {
   return (
     <div className="message">
-      <section className="message-text">Message Test</section>
-      <h4>Message test</h4>
+      <section className="message-text">{props.messageContent}</section>
       <section id="options">
         <button
           className="message-button"
           id="edit"
-          onClick={() => props.editMessage(props.message)}
+          // onClick={() => props.editMessage(props.messageContent)}
         >
           Edit
         </button>
         <button
           className="message-button"
           id="delete"
-          onClick={() => props.deleteMessage(props.message)}
+          // onClick={() => props.deleteMessage(props.messageContent)}
         >
           Delete
         </button>

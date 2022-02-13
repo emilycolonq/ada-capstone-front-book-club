@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 
 const NewMessageForm = (props) => {
-  const [messages, setMessages] = useState([]);
+  // const [messages, setMessages] = useState([]);
   const [userInputMessage, setUserInputMessage] = useState("");
   const [userInputMessageIsValid, setUserInputMessageIsValid] = useState(true);
 
   const onSubmitMessageForm = (event) => {
     event.preventDefault();
     const axios = require("axios");
-    console.log("is this getting called?");
 
     axios
       .post(
@@ -23,7 +22,7 @@ const NewMessageForm = (props) => {
       .then((response) => {
         console.log("response", response);
         console.log("response data:", response.data);
-        setMessages([...messages, response.data]);
+        props.setMessages([...props.messages, response.data]);
         props.onSuccessfulSubmit();
       })
       .catch((error) => {
@@ -41,9 +40,7 @@ const NewMessageForm = (props) => {
 
     setUserInputMessage(inputMessage);
 
-    if (inputMessage.trim().length > 0) {
-      setUserInputMessageIsValid(true);
-    } else {
+    if (userInputMessage.trim().length === 0) {
       setUserInputMessageIsValid(false);
       return;
     }

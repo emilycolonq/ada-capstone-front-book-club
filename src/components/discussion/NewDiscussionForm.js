@@ -22,7 +22,6 @@ const NewDiscussionForm = (props) => {
         console.log("response:", response);
         console.log("response data:", response.data);
         props.setDiscussions([...props.discussions, response.data]);
-        console.log(props);
         props.onSuccessfulSubmit();
       })
       .catch((error) => {
