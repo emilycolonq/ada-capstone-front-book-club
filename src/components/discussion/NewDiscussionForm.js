@@ -50,8 +50,6 @@ const NewDiscussionForm = (props) => {
       subject: userInputSubjectIsValid,
     };
 
-    onSubmitDiscussionForm(newSubject);
-    setUserInputSubject("");
     setUserInputSubjectIsValid(true);
   };
 

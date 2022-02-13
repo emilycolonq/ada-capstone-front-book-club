@@ -52,8 +52,6 @@ const NewMessageForm = () => {
       message: userInputMessageIsValid,
     };
 
-    onSubmitMessageForm(newMessage);
-    setUserInputMessage("");
     setUserInputMessageIsValid(true);
   };
   return (
