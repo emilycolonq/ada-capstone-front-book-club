@@ -16,7 +16,9 @@ const FormModal = (props) => {
         <Modal.Header>
           <b>{props.header}</b>
         </Modal.Header>
-        <Modal.Body>{props.body}</Modal.Body>
+        <Modal.Body>
+          {<props.body onSuccessfulSubmit={toggleForm} {...props} />}
+        </Modal.Body>
         <Modal.Footer>
           <button onClick={toggleForm}>Cancel</button>
         </Modal.Footer>

@@ -19,17 +19,13 @@ const Bulletin = (props) => {
   return (
     <div>
       <header>
-        <h2>{props.bulletinHeader}</h2>
+        <h2>Discussions</h2>
       </header>
       <main>
         <FormModal
-          header={props.startNewDiscussion}
-          body={
-            <NewDiscussionForm
-              discussions={props.discussions}
-              setDiscussions={props.setDiscussions}
-            />
-          }
+          header="Start A New Discussion"
+          body={NewDiscussionForm}
+          {...props}
         />
         <ul className="bulletinList">{bulletinLinksList}</ul>
 

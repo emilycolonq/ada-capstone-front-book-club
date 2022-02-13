@@ -43,8 +43,6 @@ const Group = (props) => {
           <PagesProgressBar bgcolor="orange" progress="60" height={30} />
           <div>
             <Bulletin
-              bulletinHeader="Discussions"
-              startNewDiscussion="Start A New Discussion"
               discussions={discussions}
               setDiscussions={setDiscussions}
             />
