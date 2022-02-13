@@ -22,6 +22,7 @@ const NewDiscussionForm = (props) => {
         console.log("response:", response);
         console.log("response data:", response.data);
         props.setDiscussions([...props.discussions, response.data]);
+        props.onSuccessfulSubmit();
       })
       .catch((error) => {
         console.log("error:", error);
@@ -46,17 +47,12 @@ const NewDiscussionForm = (props) => {
       return;
     }
 
-    const newSubject = {
-      subject: userInputSubjectIsValid,
-    };
-
     setUserInputSubjectIsValid(true);
   };
 
   return (
     <>
-      {/* {" "} */}
-      <Form id="new-discussion-form">
+      <Form id="new-discussion-form" onSubmit={onSubmitDiscussionForm}>
         <Form.Group>
           <Form.Label>Subject: </Form.Label>
           <Form.Control
@@ -66,12 +62,7 @@ const NewDiscussionForm = (props) => {
             placeholder="Thoughts on Chapter 1"
           />
         </Form.Group>
-        <input
-          type="submit"
-          value="Submit"
-          form="new-discussion-form"
-          onClick={onSubmitDiscussionForm}
-        ></input>
+        <input type="submit" value="Submit" form="new-discussion-form"></input>
       </Form>
     </>
   );

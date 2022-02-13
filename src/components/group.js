@@ -44,16 +44,9 @@ const Group = (props) => {
           <div>
             <Bulletin
               bulletinHeader="Discussions"
-              bulletinTitle="Need to update every time a new discussion is created"
               startNewDiscussion="Start A New Discussion"
               discussions={discussions}
               setDiscussions={setDiscussions}
-              newDiscussionForm={
-                <NewDiscussionForm
-                  discussions={discussions}
-                  setDiscussions={setDiscussions}
-                />
-              }
             />
           </div>
         </Col>

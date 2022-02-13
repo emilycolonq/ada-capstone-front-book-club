@@ -17,11 +17,7 @@ const DiscussionThread = (props) => {
           <header>
             <h2>Testing: I want this to be the discussion subject</h2>
           </header>
-          <FormModal
-            header="Start A New Message"
-            body={<NewMessageForm />}
-            // submitHandler={newMessageHandler}
-          />
+          <FormModal header="Start A New Message" body={<NewMessageForm />} />
           <h4>I want this to populate all message instances</h4>
           {/* <Message /> */}
         </Col>

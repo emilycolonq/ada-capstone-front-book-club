@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import FormModal from "../FormModal";
+import NewDiscussionForm from "./NewDiscussionForm";
 
 // This will have links to each DiscussionThread.
 
@@ -23,8 +24,12 @@ const Bulletin = (props) => {
       <main>
         <FormModal
           header={props.startNewDiscussion}
-          body={props.newDiscussionForm}
-          submitHandler={props.newSubjectHandler}
+          body={
+            <NewDiscussionForm
+              discussions={props.discussions}
+              setDiscussions={props.setDiscussions}
+            />
+          }
         />
         <ul className="bulletinList">{bulletinLinksList}</ul>
 

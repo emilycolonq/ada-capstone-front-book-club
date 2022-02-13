@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 
-const NewMessageForm = () => {
+const NewMessageForm = (props) => {
   const [messages, setMessages] = useState([]);
   const [userInputMessage, setUserInputMessage] = useState("");
   const [userInputMessageIsValid, setUserInputMessageIsValid] = useState(true);
@@ -24,6 +24,7 @@ const NewMessageForm = () => {
         console.log("response", response);
         console.log("response data:", response.data);
         setMessages([...messages, response.data]);
+        props.onSuccessfulSubmit();
       })
       .catch((error) => {
         console.log("error:", error);
@@ -35,7 +36,6 @@ const NewMessageForm = () => {
   };
 
   const onChangeUserInputMessageStateHandler = (event) => {
-    console.log(event);
     event.preventDefault();
     const inputMessage = event.target.value;
 
@@ -47,10 +47,6 @@ const NewMessageForm = () => {
       setUserInputMessageIsValid(false);
       return;
     }
-
-    const newMessage = {
-      message: userInputMessageIsValid,
-    };
 
     setUserInputMessageIsValid(true);
   };
