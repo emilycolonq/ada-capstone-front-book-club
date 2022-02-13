@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 
 const NewMessageForm = (props) => {
-  // const [messages, setMessages] = useState([]);
   const [userInputMessage, setUserInputMessage] = useState("");
   const [userInputMessageIsValid, setUserInputMessageIsValid] = useState(true);
 
@@ -20,8 +19,8 @@ const NewMessageForm = (props) => {
         }
       )
       .then((response) => {
-        console.log("response", response);
-        console.log("response data:", response.data);
+        // console.log("response", response);
+        // console.log("response data:", response.data);
         props.setMessages([...props.messages, response.data]);
         props.onSuccessfulSubmit();
       })

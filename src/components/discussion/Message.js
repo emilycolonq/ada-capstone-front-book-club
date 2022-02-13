@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // This is the actual message. Every time a message is submitted via CreateMessage, this will be generated.
 const Message = (props) => {
@@ -16,7 +16,7 @@ const Message = (props) => {
         <button
           className="message-button"
           id="delete"
-          // onClick={() => props.deleteMessage(props.messageContent)}
+          onClick={() => props.deleteMessage(props.messageObject)}
         >
           Delete
         </button>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Message from "./Message";
 import FormModal from "../FormModal";
-import { Outlet } from "react-router-dom";
 import NewMessageForm from "./NewMessageForm";
 import { Row, Col } from "react-bootstrap";
 
@@ -11,10 +10,30 @@ import { Row, Col } from "react-bootstrap";
 
 const DiscussionThread = (props) => {
   const [messages, setMessages] = useState([]);
+
+  const deleteMessage = (message) => {
+    const axios = require("axios");
+
+    axios
+      .delete(
+        `https://ada-capstone-book-club.herokuapp.com/adabookclub/messages/${message.id}`
+      )
+      .then(() => {
+        let filteredMessages = messages.filter((m) => {
+          return m.id !== message.id;
+        });
+        setMessages(filteredMessages);
+      });
+  };
   const messagesList = messages.map((message) => {
     return (
       <li className="messageListItem">
-        <Message messageContent={message.message} />
+        <Message
+          messageContent={message.message}
+          messages={messages}
+          messageObject={message}
+          deleteMessage={deleteMessage}
+        />
       </li>
     );
   });
