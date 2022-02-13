@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import FormModal from "../FormModal";
 
@@ -14,7 +14,7 @@ const Bulletin = (props) => {
       </li>
     );
   });
-  console.log(bulletinLinksList);
+
   return (
     <div>
       <header>
@@ -27,6 +27,7 @@ const Bulletin = (props) => {
           submitHandler={props.newSubjectHandler}
         />
         <ul className="bulletinList">{bulletinLinksList}</ul>
+
         <Outlet />
       </main>
     </div>

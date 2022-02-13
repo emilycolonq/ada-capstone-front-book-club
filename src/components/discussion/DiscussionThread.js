@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Message from "./Message";
+import FormModal from "../FormModal";
+import { Outlet } from "react-router-dom";
+import NewMessageForm from "./NewMessageForm";
+import { Row, Col } from "react-bootstrap";
 
 // This is the actual discussion thread. Every time a discussion title is submitted via NewDiscussionForm, this will be generated.
 
@@ -8,10 +12,20 @@ import Message from "./Message";
 const DiscussionThread = (props) => {
   return (
     <div>
-      <header>
-        <h2 className="discussionTitle">Discussion Thread Test</h2>
-      </header>
-      <Message />
+      <Row className="justify-content-md-center">
+        <Col md={{ span: 6, offset: 0 }} sm={6} xs={6}>
+          <header>
+            <h2>Testing: I want this to be the discussion subject</h2>
+          </header>
+          <FormModal
+            header="Start A New Message"
+            body={<NewMessageForm />}
+            // submitHandler={newMessageHandler}
+          />
+          <h4>I want this to populate all message instances</h4>
+          {/* <Message /> */}
+        </Col>
+      </Row>
     </div>
   );
 };

@@ -39,7 +39,7 @@ const NewDiscussionForm = (props) => {
 
     setUserInputSubject(inputSubject);
 
-    if (inputSubject.trim() > 0 && inputSubject.trim().length <= 100) {
+    if (inputSubject.trim().length > 0 && inputSubject.trim().length <= 100) {
       setUserInputSubjectIsValid(true);
     } else {
       setUserInputSubjectIsValid(false);
@@ -57,7 +57,7 @@ const NewDiscussionForm = (props) => {
 
   return (
     <>
-      {" "}
+      {/* {" "} */}
       <Form id="new-discussion-form">
         <Form.Group>
           <Form.Label>Subject: </Form.Label>
