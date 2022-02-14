@@ -3,7 +3,7 @@ import GroupPage from './grouppage';
 
 
 const Group = (props) => {
-    const selectGroup = () => {
+    // const selectGroup = () => {
         const newSelected = {
             name: props.group.name,
             user: props.board.user,
@@ -13,11 +13,10 @@ const Group = (props) => {
             page: props.page
         }
         props.current(newSelected);
-    } 
+    // } 
     return (
         <div>
-            <li className="group-item" onClick={selectGroup}> {props.group.name} </li>
-            <p><GroupPage title = {props.title} author= {props.author} page = {props.page}/></p>
+            <li className="group-item" onClick={<GroupPage/>}> {props.group.name} </li>
         </div>
     )
 }

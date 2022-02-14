@@ -9,10 +9,10 @@ const axios = require('axios');
 
 
 
-const MAX_CORRECT = 150;
 
 const GroupPage = (props) => {
-    const [maxScore] = useState(MAX_CORRECT);
+
+    const [maxScore] = useState(props.page);
     const [score, setScore] = useState(0);
 
     useEffect(() => {
@@ -30,6 +30,12 @@ const GroupPage = (props) => {
 
     return (
         <div className="App">
+            <Row className="justify-content-md-center">
+                <Col md={{ span: 6, offset: 0 }} sm ={6} xs={6}>
+                    <h2>Welcome to {props.name}</h2>
+                    <p>We are reading {props.title} by {props.author}</p>
+                </Col>
+            </Row>
             <Row className="justify-content-md-center">
                 <Col md={{ span: 6, offset: 0 }} sm ={6} xs={6}>
                     <h1>User Page Progress</h1>
