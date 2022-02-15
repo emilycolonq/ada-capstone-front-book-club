@@ -12,8 +12,11 @@ import { useParams } from "react-router-dom";
 
 const DiscussionThread = (props) => {
   const [messages, setMessages] = useState([]);
+  const [discussionSubject, setDiscussionSubject] = useState("Discussions");
 
   const { discussionId } = useParams();
+
+  // Messages State and Event Handlers
 
   const deleteMessage = (message) => {
     axios
@@ -41,7 +44,6 @@ const DiscussionThread = (props) => {
       </li>
     );
   });
-
   useEffect(() => {
     const axios = require("axios");
     axios
@@ -50,24 +52,24 @@ const DiscussionThread = (props) => {
       )
       .then((response) => {
         setMessages(response.data.messages);
+        setDiscussionSubject(response.data.subject);
       })
       .catch((error) => {
         console.log("error:", error);
         console.log("error response:", error.response);
       });
-  }, [setMessages]);
+  }, [setMessages, setDiscussionSubject]);
 
   return (
     <div>
       <Row className="justify-content-md-center">
         <Col md={{ span: 6, offset: 0 }} sm={6} xs={6}>
           <header>
-            <h2>{}</h2>
+            <h2>{discussionSubject}</h2>
           </header>
           <FormModal
             header="Start A New Message"
             body={NewMessageForm}
-            {...props}
             messages={messages}
             setMessages={setMessages}
             discussionId={discussionId}

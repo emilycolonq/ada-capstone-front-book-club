@@ -14,13 +14,11 @@ const NewMessageForm = (props) => {
         "https://ada-capstone-book-club.herokuapp.com/adabookclub/messages/",
         {
           message: userInputMessage,
-          discussion_id: props.discussionId, //This is currently hard-coded. TODO: GET from NewDiscussionForm/DiscussionThread
+          discussion_id: props.discussionId,
           member_id: 1, // This is currently hard-coded. TODO: GET from Member
         }
       )
       .then((response) => {
-        // console.log("response", response);
-        // console.log("response data:", response.data);
         props.setMessages([...props.messages, response.data]);
         props.onSuccessfulSubmit();
       })
