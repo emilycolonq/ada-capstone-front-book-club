@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.css";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Bulletin from "./discussion/Bulletin";
+import { useParams, Outlet } from "react-router-dom";
 
 const axios = require("axios");
 
@@ -25,60 +26,68 @@ const GroupPage = (props) => {
   const percentCorrect = (score * 100) / maxScore;
   const percentCorrectLabel = `${Number(percentCorrect).toFixed(2)}%`;
 
-  // Discussion State and Event Handlers
+  // Book State and Event Handlers
+  const [bookAuthor, setBookAuthor] = useState("Book Author");
+  const [bookTitle, setBookTitle] = useState("Book Title");
+  const [groupName, setGroupName] = useState("Book Club");
   const [discussions, setDiscussions] = useState([]);
+  const { groupId } = useParams();
 
   useEffect(() => {
+    const axios = require("axios");
     axios
       .get(
-        `https://ada-capstone-book-club.herokuapp.com/adabookclub/discussions`
+        `https://ada-capstone-book-club.herokuapp.com/adabookclub/groups/${groupId}`
       )
       .then((response) => {
-        setDiscussions(response.data);
+        console.log(response.data);
+        setBookAuthor(response.data.book_author);
+        setBookTitle(response.data.book_title);
+        setGroupName(response.data.group_name);
+        setDiscussions(response.data.discussions);
       })
       .catch((error) => {
         console.log("error:", error);
         console.log("error response:", error.response);
       });
-  }, [setDiscussions]);
+  }, [setBookAuthor, setBookTitle, setGroupName, setDiscussions, groupId]);
 
-
-//     return (
-//         <div className="App">
-//             <Row className="justify-content-md-center">
-//                 <Col md={{ span: 6, offset: 0 }} sm ={6} xs={6}>
-//                     <h2>Welcome to {props.name}</h2>
-//                     <p>We are reading {props.title} by {props.author}</p>
-//                 </Col>
-//             </Row>
-//             <Row className="justify-content-md-center">
-//                 <Col md={{ span: 6, offset: 0 }} sm ={6} xs={6}>
-//                     <h1>User Page Progress</h1>
-//                     <div>Page {score} out of {maxScore} total pages</div>
-//                     <ProgressBar
-//                         animated
-//                         min={0}
-//                         max={maxScore}
-//                         now={score}
-//                         label={scoreLabel}
-//                     />
-//                     <div>Percentage finished</div>
-//                     <PercentBar label={percentCorrectLabel} percent={percentCorrect} />
-//                     <button type="button" onClick={() => fetchData()}>
-//                         Add Page
-//                     </button>
-//                 </Col>
-//             </Row>
-//         </div>
-//     );
-// }
+  //     return (
+  //         <div className="App">
+  //             <Row className="justify-content-md-center">
+  //                 <Col md={{ span: 6, offset: 0 }} sm ={6} xs={6}>
+  //                     <h2>Welcome to {props.name}</h2>
+  //                     <p>We are reading {props.title} by {props.author}</p>
+  //                 </Col>
+  //             </Row>
+  //             <Row className="justify-content-md-center">
+  //                 <Col md={{ span: 6, offset: 0 }} sm ={6} xs={6}>
+  //                     <h1>User Page Progress</h1>
+  //                     <div>Page {score} out of {maxScore} total pages</div>
+  //                     <ProgressBar
+  //                         animated
+  //                         min={0}
+  //                         max={maxScore}
+  //                         now={score}
+  //                         label={scoreLabel}
+  //                     />
+  //                     <div>Percentage finished</div>
+  //                     <PercentBar label={percentCorrectLabel} percent={percentCorrect} />
+  //                     <button type="button" onClick={() => fetchData()}>
+  //                         Add Page
+  //                     </button>
+  //                 </Col>
+  //             </Row>
+  //         </div>
+  //     );
+  // }
   return (
     <div className="App">
       <Row className="justify-content-md-center">
         <Col md={{ span: 6, offset: 0 }} sm={6} xs={6}>
-          <h2>Welcome to {props.name}</h2>
+          <h2>Welcome to {groupName}</h2>
           <p>
-            We are reading {props.title} by {props.author}
+            We are reading {bookTitle} by {bookAuthor}
           </p>
         </Col>
       </Row>
@@ -105,7 +114,7 @@ const GroupPage = (props) => {
       <Row className="justify-content-md-center">
         <Col md={{ span: 6, offset: 0 }} sm={6} xs={6}>
           <p>
-            {props.title} by {props.author}
+            {bookTitle} by {bookAuthor}
           </p>
         </Col>
       </Row>
@@ -119,6 +128,7 @@ const GroupPage = (props) => {
           </p>
         </Col>
       </Row>
+      <Outlet />
     </div>
   );
 };
