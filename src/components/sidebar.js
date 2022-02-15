@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, Link, Outlet } from "react-router-dom";
-import './styles.css'
-import axios from 'axios';
+import "./styles.css";
+import axios from "axios";
 import Group from "./group";
 import GroupPage from "./grouppage";
 
@@ -10,6 +10,10 @@ import GroupPage from "./grouppage";
 //   const [setGroup] = useState({group_name: '', group_id: 0});
 //   const [groupList, setGroupList] = useState([]);
 // //   let url = process.env.BOOK_CLUB_BACKEND;
+// const Sidebar = () => {
+  // const [setGroup] = useState({title: '', group_id: 0});
+  // const [groupList, setGroupList] = useState([]);
+  // let url = process.env.BOOK_CLUB_BACKEND;
 
 //   useEffect(() => {
 //       getGroupListTest();
