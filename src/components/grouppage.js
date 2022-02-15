@@ -25,6 +25,7 @@ const GroupPage = (props) => {
   const percentCorrect = (score * 100) / maxScore;
   const percentCorrectLabel = `${Number(percentCorrect).toFixed(2)}%`;
 
+  // Discussion State and Event Handlers
   const [discussions, setDiscussions] = useState([]);
 
   useEffect(() => {
