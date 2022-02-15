@@ -1,3 +1,48 @@
+// import React from 'react';
+// import axios from 'axios';
+// import GroupPage from './grouppage';
+// import { useNavigate } from 'react-router';
+
+// export default class GroupList extends React.Component {
+//     state = {
+//         groups: []
+//     }
+
+//     componentDidMount() {
+//         axios.get("https://ada-capstone-book-club.herokuapp.com/adabookclub/groups/")
+//             .then(res => {
+//             const groups = res.data;
+//             this.setState({ groups });
+//     })
+//     }
+//     // LoginLayout() {
+//     //     let navigate = useNavigate(); 
+//     //     const routeChange = () => { 
+//     //         let path = <GroupPage/> 
+//     //         navigate(path);
+//     //     }
+//     // } 
+
+
+//     render() {
+//         return (
+//         <ul>
+//             {
+//             this.state.groups
+//                 .map(group =>
+//                 <li key={group.id}>{group.group_name}</li>
+//                 )
+//             }
+//         </ul>
+//         )
+//     }
+// }
+
+
+
+
+
+
 // import React, {useState, useEffect} from 'react';
 // import GroupPage from './grouppage';
 // import axios from 'axios';

@@ -12,7 +12,7 @@ const axios = require('axios');
 
 const GroupPage = (props) => {
 
-    const [maxScore] = useState(props.page);
+    const [maxScore] = useState(props.pages);
     const [score, setScore] = useState(0);
 
     useEffect(() => {
@@ -26,6 +26,7 @@ const GroupPage = (props) => {
     const scoreLabel = `${score}/${maxScore}`;
     const percentCorrect = (score * 100) / maxScore;
     const percentCorrectLabel = `${Number(percentCorrect).toFixed(2)}%`;
+
 
 
     return (
@@ -52,11 +53,6 @@ const GroupPage = (props) => {
                     <button type="button" onClick={() => fetchData()}>
                         Add Page
                     </button>
-                </Col>
-            </Row>
-            <Row className="justify-content-md-center">
-                <Col md={{ span: 6, offset: 0 }} sm ={6} xs={6}>
-                    <p>{props.title} by {props.author}</p>
                 </Col>
             </Row>
         </div>
