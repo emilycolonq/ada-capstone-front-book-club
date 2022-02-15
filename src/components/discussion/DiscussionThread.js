@@ -11,6 +11,7 @@ import axios from "axios";
 
 const DiscussionThread = (props) => {
   const [messages, setMessages] = useState([]);
+  const [discussionSubject, setDiscussionSubject] = useState("Discussions");
 
   const deleteMessage = (message) => {
     axios
@@ -44,7 +45,9 @@ const DiscussionThread = (props) => {
     axios
       .get("https://ada-capstone-book-club.herokuapp.com/adabookclub/messages/")
       .then((response) => {
-        setMessages(response.data);
+        console.log(response.data);
+        setMessages(response.data.messages);
+        setDiscussionSubject(response.data.subject);
       })
       .catch((error) => {
         console.log("error:", error);
@@ -56,7 +59,7 @@ const DiscussionThread = (props) => {
       <Row className="justify-content-md-center">
         <Col md={{ span: 6, offset: 0 }} sm={6} xs={6}>
           <header>
-            <h2>{}</h2>
+            <h2>{discussionSubject}</h2>
           </header>
           <FormModal
             header="Start A New Message"

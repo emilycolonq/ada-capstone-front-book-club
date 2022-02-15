@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.css";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Bulletin from "./discussion/Bulletin";
+import { useParams, Outlet } from "react-router-dom";
 
 const axios = require("axios");
 
@@ -25,6 +26,27 @@ const GroupPage = (props) => {
   const percentCorrect = (score * 100) / maxScore;
   const percentCorrectLabel = `${Number(percentCorrect).toFixed(2)}%`;
 
+  // Book State and Event Handlers
+  const [bookAuthor, setBookAuthor] = useState("Book Author");
+  const { groupId } = useParams();
+
+  useEffect(() => {
+    const axios = require("axios");
+    axios
+      .get(
+        `https://ada-capstone-book-club.herokuapp.com/adabookclub/dashboard/groups/${groupId}`
+      )
+      .then((response) => {
+        console.log(response.data);
+        setBookAuthor(response.data.book_title);
+      })
+      .catch((error) => {
+        console.log("error:", error);
+        console.log("error response:", error.response);
+      });
+  }, [setBookAuthor]);
+
+  // Discussion State and Event Handlers
   const [discussions, setDiscussions] = useState([]);
 
   useEffect(() => {
@@ -41,6 +63,35 @@ const GroupPage = (props) => {
       });
   }, [setDiscussions]);
 
+  //     return (
+  //         <div className="App">
+  //             <Row className="justify-content-md-center">
+  //                 <Col md={{ span: 6, offset: 0 }} sm ={6} xs={6}>
+  //                     <h2>Welcome to {props.name}</h2>
+  //                     <p>We are reading {props.title} by {props.author}</p>
+  //                 </Col>
+  //             </Row>
+  //             <Row className="justify-content-md-center">
+  //                 <Col md={{ span: 6, offset: 0 }} sm ={6} xs={6}>
+  //                     <h1>User Page Progress</h1>
+  //                     <div>Page {score} out of {maxScore} total pages</div>
+  //                     <ProgressBar
+  //                         animated
+  //                         min={0}
+  //                         max={maxScore}
+  //                         now={score}
+  //                         label={scoreLabel}
+  //                     />
+  //                     <div>Percentage finished</div>
+  //                     <PercentBar label={percentCorrectLabel} percent={percentCorrect} />
+  //                     <button type="button" onClick={() => fetchData()}>
+  //                         Add Page
+  //                     </button>
+  //                 </Col>
+  //             </Row>
+  //         </div>
+  //     );
+  // }
   return (
     <div className="App">
       <Row className="justify-content-md-center">
@@ -74,7 +125,7 @@ const GroupPage = (props) => {
       <Row className="justify-content-md-center">
         <Col md={{ span: 6, offset: 0 }} sm={6} xs={6}>
           <p>
-            {props.title} by {props.author}
+            {props.title} by {bookAuthor}
           </p>
         </Col>
       </Row>
@@ -88,6 +139,7 @@ const GroupPage = (props) => {
           </p>
         </Col>
       </Row>
+      <Outlet />
     </div>
   );
 };

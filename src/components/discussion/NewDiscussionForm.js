@@ -8,7 +8,6 @@ const NewDiscussionForm = (props) => {
   const onSubmitDiscussionForm = (event) => {
     event.preventDefault();
     const axios = require("axios");
-    console.log("is this getting called?");
 
     axios
       .post(

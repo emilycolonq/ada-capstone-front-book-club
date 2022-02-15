@@ -18,8 +18,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />}>
-          <Route path="groups" element={<GroupPage />} />
+        <Route path="dashboard" element={<Dashboard />}>
+          <Route path="groups" element={<GroupPage />}>
+            <Route path=":groupId" element={<GroupPage />} />
+          </Route>
           <Route path="groups/discussions" element={<DiscussionThread />}>
             <Route path=":discussionId" element={<DiscussionThread />} />
           </Route>
