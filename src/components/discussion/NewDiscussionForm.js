@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
+import { useParams } from "react-router-dom";
 
 const NewDiscussionForm = (props) => {
   const [userInputSubject, setUserInputSubject] = useState("");
   const [userInputSubjectIsValid, setUserInputSubjectIsValid] = useState(true);
+  const { groupId } = useParams();
 
   const onSubmitDiscussionForm = (event) => {
     event.preventDefault();
@@ -14,7 +16,7 @@ const NewDiscussionForm = (props) => {
         "https://ada-capstone-book-club.herokuapp.com/adabookclub/discussions/",
         {
           subject: userInputSubject,
-          group_id: 2, // This is currently hard-coded. TODO: GET from Group (look into GroupPage.js -- pass group_id down as a prop)
+          group_id: groupId,
         }
       )
       .then((response) => {
