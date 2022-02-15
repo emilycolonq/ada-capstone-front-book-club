@@ -8,13 +8,13 @@ const NewMessageForm = (props) => {
   const onSubmitMessageForm = (event) => {
     event.preventDefault();
     const axios = require("axios");
-
+    console.log(props.discussionId);
     axios
       .post(
         "https://ada-capstone-book-club.herokuapp.com/adabookclub/messages/",
         {
           message: userInputMessage,
-          discussion_id: 1, //This is currently hard-coded. TODO: GET from NewDiscussionForm/DiscussionThread
+          discussion_id: props.discussionId, //This is currently hard-coded. TODO: GET from NewDiscussionForm/DiscussionThread
           member_id: 1, // This is currently hard-coded. TODO: GET from Member
         }
       )
@@ -39,7 +39,7 @@ const NewMessageForm = (props) => {
 
     setUserInputMessage(inputMessage);
 
-    if (userInputMessage.trim().length === 0) {
+    if (inputMessage.trim().length === 0) {
       setUserInputMessageIsValid(false);
       return;
     }
