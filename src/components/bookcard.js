@@ -1,6 +1,6 @@
 import React from 'react';
 import NewGroupForm from './NewGroupForm';
-import Popup from '../popup';
+import Popup from './popup';
 import { useState } from 'react';
 
 const BookCard = (props) => {
@@ -25,7 +25,7 @@ const BookCard = (props) => {
                 onClick={togglePopup}/>
                 {isOpen && <Popup
                 content={
-                    <p><NewGroupForm /></p>
+                    <p><NewGroupForm title = {props.title} author= {props.author} page = {props.page}/></p>
                 }
                 handleClose={togglePopup}
                 />}

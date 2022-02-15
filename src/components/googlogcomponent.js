@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
+import User from "../user";
+const axios = require('axios');
 
 const CLIENT_ID = "347596848722-a0ku7tc318qpc8l56k6mmp17gadq81r9.apps.googleusercontent.com";
 
@@ -40,20 +42,25 @@ class GoogleLoginComponent extends Component {
         this.setState({ userInfo, isLoggedIn: false });
     };
 
+    onNewUser = (props) => {
+        let url = process.env.BOOK_CLUB_BACKEND;
+        const newUser = {
+            username: props.username
+        }
+        axios.post(url, newUser)
+    }
+
     render() {
         return (
         <div className="row mt-5">
+            <User username = {this.state.userInfo.name} isLoggedIn = {this.state.isLoggedIn}/>
             <div className="col-md-12">
             {this.state.isLoggedIn ? (
-                <div>
-                <h1>Welcome, {this.state.userInfo.name}</h1>
-
                 <GoogleLogout
                     clientId={CLIENT_ID}
                     buttonText={"Logout"}
                     onLogoutSuccess={this.logout}
                 ></GoogleLogout>
-                </div>
             ) : (
                 <GoogleLogin
                 clientId={CLIENT_ID}
@@ -62,6 +69,7 @@ class GoogleLoginComponent extends Component {
                 onFailure={this.responseGoogleError}
                 isSignedIn={true}
                 cookiePolicy={"single_host_origin"}
+                onUserSubmit = {this.onNewUser}
                 />
             )}
             </div>

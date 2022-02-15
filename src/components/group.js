@@ -1,59 +1,40 @@
 import React, { useState, useEffect } from "react";
-// import PropTypes from 'prop-types';
-import PagesProgressBar from "./pagesprogress";
-import { Row, Col } from "react-bootstrap";
+// import PagesProgressBar from "./pagesprogress";
+// import { Row, Col } from "react-bootstrap";
 import Bulletin from "./discussion/Bulletin";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
+import GroupPage from "./grouppage";
 
 const Group = (props) => {
+  // A single discussion is an entire object. discussions is an array of discussion objects.
+
   // const selectGroup = () => {
-  //     const newSelected = {
-  //         name: props.group.name,
-  //         group_id: props.id
-  //     }
-  //     props.current(newSelected);
+  const newSelected = {
+    name: props.group.name,
+    user: props.board.user,
+    group_id: props.id,
+    title: props.title,
+    author: props.author,
+    page: props.page,
+  };
+  props.current(newSelected);
   // }
-
-  // Bulletin State and Event Handlers
-
-  // a single discussion is an entire object. discussions is an array of discussion objects.
-  const [discussions, setDiscussions] = useState([]);
-
-  useEffect(
-    (discussion) => {
-      axios
-        .get(
-          `https://ada-capstone-book-club.herokuapp.com/adabookclub/discussions`
-        )
-        .then((response) => {
-          setDiscussions(response.data);
-        })
-        .catch((error) => {
-          console.log("error:", error);
-          console.log("error response:", error.response);
-        });
-    },
-    [setDiscussions]
-  );
-
   return (
     <div>
-      <Row className="justify-content-md-center">
-        <Col md={{ span: 6, offset: 0 }} sm={6} xs={6}>
-          <h3 className="page-progress">Progress Bar</h3>
-          <PagesProgressBar bgcolor="yellow" progress="30" height={30} />
-          <PagesProgressBar bgcolor="orange" progress="60" height={30} />
-          <div>
-            <Bulletin
-              discussions={discussions}
-              setDiscussions={setDiscussions}
-            />
-          </div>
-        </Col>
-      </Row>
+      <li
+        className="group-item"
+        onClick={
+          <GroupPage
+          // discussions={discussions}
+          // setDiscussions={setDiscussions}
+          />
+        }
+      >
+        {" "}
+        {props.group.name}{" "}
+      </li>
     </div>
-    // <h1 className="group-item" onClick={selectGroup}> {props.group.name} </h1>
   );
 };
 
