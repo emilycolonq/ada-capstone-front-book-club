@@ -11,7 +11,6 @@ import { useParams, Outlet } from "react-router-dom";
 const axios = require("axios");
 
 const GroupPage = (props) => {
-  console.log("hi");
   const [maxScore] = useState(props.page);
   const [score, setScore] = useState(0);
 
@@ -34,6 +33,7 @@ const GroupPage = (props) => {
   const { groupId } = useParams();
 
   useEffect(() => {
+    console.log("is it re-rendering?");
     const axios = require("axios");
     axios
       .get(
@@ -49,7 +49,7 @@ const GroupPage = (props) => {
         console.log("error:", error);
         console.log("error response:", error.response);
       });
-  }, [setBookAuthor, setBookTitle, setGroupName]);
+  }, [setBookAuthor, setBookTitle, setGroupName, groupId]);
 
   // Discussion State and Event Handlers
   const [discussions, setDiscussions] = useState([]);
