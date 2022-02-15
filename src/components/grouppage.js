@@ -26,6 +26,7 @@ const GroupPage = (props) => {
   const percentCorrect = (score * 100) / maxScore;
   const percentCorrectLabel = `${Number(percentCorrect).toFixed(2)}%`;
 
+<<<<<<< HEAD
   // Book State and Event Handlers
   const [bookAuthor, setBookAuthor] = useState("Book Author");
   const { groupId } = useParams();
@@ -46,6 +47,8 @@ const GroupPage = (props) => {
       });
   }, [setBookAuthor]);
 
+=======
+>>>>>>> main
   // Discussion State and Event Handlers
   const [discussions, setDiscussions] = useState([]);
 
@@ -63,35 +66,36 @@ const GroupPage = (props) => {
       });
   }, [setDiscussions]);
 
-  //     return (
-  //         <div className="App">
-  //             <Row className="justify-content-md-center">
-  //                 <Col md={{ span: 6, offset: 0 }} sm ={6} xs={6}>
-  //                     <h2>Welcome to {props.name}</h2>
-  //                     <p>We are reading {props.title} by {props.author}</p>
-  //                 </Col>
-  //             </Row>
-  //             <Row className="justify-content-md-center">
-  //                 <Col md={{ span: 6, offset: 0 }} sm ={6} xs={6}>
-  //                     <h1>User Page Progress</h1>
-  //                     <div>Page {score} out of {maxScore} total pages</div>
-  //                     <ProgressBar
-  //                         animated
-  //                         min={0}
-  //                         max={maxScore}
-  //                         now={score}
-  //                         label={scoreLabel}
-  //                     />
-  //                     <div>Percentage finished</div>
-  //                     <PercentBar label={percentCorrectLabel} percent={percentCorrect} />
-  //                     <button type="button" onClick={() => fetchData()}>
-  //                         Add Page
-  //                     </button>
-  //                 </Col>
-  //             </Row>
-  //         </div>
-  //     );
-  // }
+
+//     return (
+//         <div className="App">
+//             <Row className="justify-content-md-center">
+//                 <Col md={{ span: 6, offset: 0 }} sm ={6} xs={6}>
+//                     <h2>Welcome to {props.name}</h2>
+//                     <p>We are reading {props.title} by {props.author}</p>
+//                 </Col>
+//             </Row>
+//             <Row className="justify-content-md-center">
+//                 <Col md={{ span: 6, offset: 0 }} sm ={6} xs={6}>
+//                     <h1>User Page Progress</h1>
+//                     <div>Page {score} out of {maxScore} total pages</div>
+//                     <ProgressBar
+//                         animated
+//                         min={0}
+//                         max={maxScore}
+//                         now={score}
+//                         label={scoreLabel}
+//                     />
+//                     <div>Percentage finished</div>
+//                     <PercentBar label={percentCorrectLabel} percent={percentCorrect} />
+//                     <button type="button" onClick={() => fetchData()}>
+//                         Add Page
+//                     </button>
+//                 </Col>
+//             </Row>
+//         </div>
+//     );
+// }
   return (
     <div className="App">
       <Row className="justify-content-md-center">

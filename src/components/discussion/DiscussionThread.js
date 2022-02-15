@@ -4,6 +4,7 @@ import FormModal from "../FormModal";
 import NewMessageForm from "./NewMessageForm";
 import { Row, Col } from "react-bootstrap";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 // This is the actual discussion thread. Every time a discussion title is submitted via NewDiscussionForm, this will be generated.
 
@@ -12,6 +13,10 @@ import axios from "axios";
 const DiscussionThread = (props) => {
   const [messages, setMessages] = useState([]);
   const [discussionSubject, setDiscussionSubject] = useState("Discussions");
+
+  const { discussionId } = useParams();
+
+  // Messages State and Event Handlers
 
   const deleteMessage = (message) => {
     axios
@@ -39,13 +44,13 @@ const DiscussionThread = (props) => {
       </li>
     );
   });
-
   useEffect(() => {
     const axios = require("axios");
     axios
-      .get("https://ada-capstone-book-club.herokuapp.com/adabookclub/messages/")
+      .get(
+        `https://ada-capstone-book-club.herokuapp.com/adabookclub/discussions/${discussionId}`
+      )
       .then((response) => {
-        console.log(response.data);
         setMessages(response.data.messages);
         setDiscussionSubject(response.data.subject);
       })
@@ -53,7 +58,8 @@ const DiscussionThread = (props) => {
         console.log("error:", error);
         console.log("error response:", error.response);
       });
-  }, [setMessages]);
+  }, [setMessages, setDiscussionSubject]);
+
   return (
     <div>
       <Row className="justify-content-md-center">
@@ -64,9 +70,9 @@ const DiscussionThread = (props) => {
           <FormModal
             header="Start A New Message"
             body={NewMessageForm}
-            {...props}
             messages={messages}
             setMessages={setMessages}
+            discussionId={discussionId}
           />
           <ul>{messagesList}</ul>
         </Col>

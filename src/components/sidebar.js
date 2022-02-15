@@ -3,6 +3,7 @@ import { Routes, Route, Link, Outlet } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import Group from "./group";
+import GroupPage from "./grouppage";
 
 // const Sidebar = () => {
 //   const [setGroup] = useState({group_name: '', group_id: 0});
@@ -41,7 +42,7 @@ export default class Sidebar extends React.Component {
 
   componentDidMount() {
     axios
-      .get(`https://ada-capstone-book-club.herokuapp.com/adabookclub/groups/`)
+      .get("https://ada-capstone-book-club.herokuapp.com/adabookclub/groups/")
       .then((res) => {
         const groups = res.data;
         this.setState({ groups });
