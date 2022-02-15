@@ -59,7 +59,7 @@ export default class Sidebar extends React.Component {
               {/* <li className="sidebarListItem"> */}
               {this.state.groups.map((group) => (
                 <li key={group.id}>
-                  <Link to={`/groups/${group.id}`} activeStyle>
+                  <Link to={`groups/${group.id}`} activeStyle>
                     {group.group_name}
                   </Link>
                 </li>

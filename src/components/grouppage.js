@@ -11,6 +11,7 @@ import { useParams, Outlet } from "react-router-dom";
 const axios = require("axios");
 
 const GroupPage = (props) => {
+  console.log("hi");
   const [maxScore] = useState(props.page);
   const [score, setScore] = useState(0);
 

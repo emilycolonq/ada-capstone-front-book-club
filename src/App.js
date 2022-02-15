@@ -19,12 +19,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="dashboard" element={<Dashboard />}>
-          <Route path="groups" element={<GroupPage />}>
-            <Route path=":groupId" element={<GroupPage />} />
-          </Route>
-          <Route path="groups/discussions" element={<DiscussionThread />}>
-            <Route path=":discussionId" element={<DiscussionThread />} />
-          </Route>
+          <Route path="groups/:groupId" element={<GroupPage />} />
+          <Route
+            path="groups/:groupId/discussions/:discussionId"
+            element={<DiscussionThread />}
+          />
         </Route>
       </Routes>
       {/* <Route path="/login" />
