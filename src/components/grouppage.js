@@ -30,10 +30,10 @@ const GroupPage = (props) => {
   const [bookAuthor, setBookAuthor] = useState("Book Author");
   const [bookTitle, setBookTitle] = useState("Book Title");
   const [groupName, setGroupName] = useState("Book Club");
+  const [discussions, setDiscussions] = useState([]);
   const { groupId } = useParams();
 
   useEffect(() => {
-    console.log("is it re-rendering?");
     const axios = require("axios");
     axios
       .get(
@@ -44,29 +44,13 @@ const GroupPage = (props) => {
         setBookAuthor(response.data.book_author);
         setBookTitle(response.data.book_title);
         setGroupName(response.data.group_name);
+        setDiscussions(response.data.discussions);
       })
       .catch((error) => {
         console.log("error:", error);
         console.log("error response:", error.response);
       });
-  }, [setBookAuthor, setBookTitle, setGroupName, groupId]);
-
-  // Discussion State and Event Handlers
-  const [discussions, setDiscussions] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(
-        `https://ada-capstone-book-club.herokuapp.com/adabookclub/discussions`
-      )
-      .then((response) => {
-        setDiscussions(response.data);
-      })
-      .catch((error) => {
-        console.log("error:", error);
-        console.log("error response:", error.response);
-      });
-  }, [setDiscussions]);
+  }, [setBookAuthor, setBookTitle, setGroupName, setDiscussions, groupId]);
 
   //     return (
   //         <div className="App">
