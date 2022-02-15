@@ -63,7 +63,7 @@ export default class Sidebar extends React.Component {
                 {
                 this.state.groups
                     .map(group =>
-                      <Link to="group" activeStyle>
+                      <Link to="groups" activeStyle>
                         <li key={group.id} onClick = {<GroupPage title = {group.book_title} author = {group.book_author} pages = {group.book_pages}/>} >{group.group_name}</li>
                       </Link>
                     )

@@ -22,6 +22,7 @@ const NewGroupForm = (props) => {
         groupFormData.append("book_author", formValue.author)
         groupFormData.append("book_pages", formValue.pages)
     
+        console.log("test")
         try {
           // make axios post request
             const response = axios({
