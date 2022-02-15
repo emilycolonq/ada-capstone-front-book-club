@@ -3,17 +3,16 @@ import Message from "./Message";
 import FormModal from "../FormModal";
 import NewMessageForm from "./NewMessageForm";
 import { Row, Col } from "react-bootstrap";
+import axios from "axios";
 
 // This is the actual discussion thread. Every time a discussion title is submitted via NewDiscussionForm, this will be generated.
 
-// This will also hold instances of Message. Every time a message is submitted via CreateMessage, an instance of Message populates Discussion Thread.
+// This will also hold instances of Message. Every time a message is submitted via NewMessageForm, an instance of Message populates DiscussionThread.
 
 const DiscussionThread = (props) => {
   const [messages, setMessages] = useState([]);
 
   const deleteMessage = (message) => {
-    const axios = require("axios");
-
     axios
       .delete(
         `https://ada-capstone-book-club.herokuapp.com/adabookclub/messages/${message.id}`
@@ -25,11 +24,13 @@ const DiscussionThread = (props) => {
         setMessages(filteredMessages);
       });
   };
+
   const messagesList = messages.map((message) => {
     return (
       <li className="messageListItem">
         <Message
           messageContent={message.message}
+          messageDate={message.date_posted}
           messages={messages}
           messageObject={message}
           deleteMessage={deleteMessage}
@@ -55,7 +56,7 @@ const DiscussionThread = (props) => {
       <Row className="justify-content-md-center">
         <Col md={{ span: 6, offset: 0 }} sm={6} xs={6}>
           <header>
-            <h2>Testing: I want this to be the discussion subject</h2>
+            <h2>{}</h2>
           </header>
           <FormModal
             header="Start A New Message"

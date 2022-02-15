@@ -15,7 +15,7 @@ const NewDiscussionForm = (props) => {
         "https://ada-capstone-book-club.herokuapp.com/adabookclub/discussions/",
         {
           subject: userInputSubject,
-          group_id: 1, // This is currently hard-coded. TODO: GET from Group
+          group_id: 2, // This is currently hard-coded. TODO: GET from Group (look into GroupPage.js -- pass group_id down as a prop)
         }
       )
       .then((response) => {

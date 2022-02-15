@@ -4,7 +4,7 @@ import PagesProgressBar from "./pagesprogress";
 import { Row, Col } from "react-bootstrap";
 import Bulletin from "./discussion/Bulletin";
 import axios from "axios";
-import NewDiscussionForm from "./discussion/NewDiscussionForm";
+import { useParams } from "react-router-dom";
 
 const Group = (props) => {
   // const selectGroup = () => {
@@ -20,19 +20,22 @@ const Group = (props) => {
   // a single discussion is an entire object. discussions is an array of discussion objects.
   const [discussions, setDiscussions] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get(
-        "https://ada-capstone-book-club.herokuapp.com/adabookclub/discussions/"
-      )
-      .then((response) => {
-        setDiscussions(response.data);
-      })
-      .catch((error) => {
-        console.log("error:", error);
-        console.log("error response:", error.response);
-      });
-  }, [setDiscussions]);
+  useEffect(
+    (discussion) => {
+      axios
+        .get(
+          `https://ada-capstone-book-club.herokuapp.com/adabookclub/discussions`
+        )
+        .then((response) => {
+          setDiscussions(response.data);
+        })
+        .catch((error) => {
+          console.log("error:", error);
+          console.log("error response:", error.response);
+        });
+    },
+    [setDiscussions]
+  );
 
   return (
     <div>

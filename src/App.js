@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-import { useRoutes } from "react-router-dom";
+import { useRoutes, useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Group from "./components/group";
 import Home from "./components/home";
