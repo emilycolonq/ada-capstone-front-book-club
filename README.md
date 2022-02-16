@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# ADA Book Club (Frontend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ADA Book Club is a web app that makes it easy for small groups of friends to organize mini book clubs online. As a user, you can search for books to create a group for. As a member of the group, users can update their page progress, create new topics in the forum and add comments to existing topics.
 
-## Available Scripts
+## Feature Set:
 
-In the project directory, you can run:
+Book Search - users can look for books and create groups based on the book they select
 
-### `npm start`
+Page Tracker - each group page will have a page tracker for each user (who is a member of group) to update and see everyone's progress
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Forum - each group page will have a forum where users who are a member of the group can add topics and comment on existing topics 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Invite friends to group(unable to get to this portion)
 
-### `npm test`
+Scheduler widget(unable to get to this portion)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Built with:
 
-### `npm run build`
+React JS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Google Books API
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Bootstrap
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Axios
 
-### `npm run eject`
+*Connected to our backend: https://github.com/mcatcruz/ada-capstone-book-club
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Setting Up
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Installations:
+1. Clone this repo: `git clone {the url to this GitHub repo}`
+2. 'cd' into this new folder
+3. Install dependencies: `npm install`
+4. Install bootstrap: `npm install bootstrap@3`
+5. Install axios: `npm install axios`
+6. Run React project: `npm start`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### Connecting to backend:
+Add `BOOK_CLUB_BACKEND = "https://ada-capstone-book-club.herokuapp.com/adabookclub/"` to your `.env` file
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Google Books API:
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Register your application using the Google API Console: https://console.developers.google.com/home/
+2. Get the `client_id` once your project has been created and add it to your `.env` file: `client_id= "yours here"`
