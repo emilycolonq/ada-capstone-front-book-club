@@ -1,5 +1,4 @@
 import React from 'react';
-// import './pages/pages.css';
 import background from "./pic2.jpg";
 
 function Home() {

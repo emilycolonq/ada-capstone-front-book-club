@@ -30,7 +30,6 @@ const BookCard = (props) => {
                 handleClose={togglePopup}
                 />}
             </div>
-            {/* <button className='new-board' onClick={togglePopup}> Create Group</button> */}
         </div>
     )
 }

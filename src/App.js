@@ -1,13 +1,10 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-// import { useRoutes, useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import Group from "./components/group";
 import Home from "./components/home";
 import Navbar from "./components/navbar/navbar.js";
 import Dashboard from "./components/dashboard";
 import DiscussionThread from "./components/discussion/DiscussionThread";
-// import Sidebar from "./components/sidebar";
 import GroupPage from "./components/grouppage";
 import "bootstrap/dist/css/bootstrap.css";
 import { Routes, Route } from "react-router-dom";
@@ -46,8 +43,6 @@ function App() {
           />
         </Route>
       </Routes>
-      {/* <Route path="/login" />
-          <Route path="/logout" /> */}
     </div>
   );
 }

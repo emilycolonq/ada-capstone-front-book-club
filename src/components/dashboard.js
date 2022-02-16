@@ -10,15 +10,7 @@ import "./styles.css";
 
 const Dashboard = (props) => {
   return (
-    <div
-      style={
-        {
-          // display: 'block',
-          // justifyContent: 'Left',
-          // height: '100vh'
-        }
-      }
-    >
+    <div>
       <Sidebar />
       <Container>
         <Row className="justify-content-md-center">

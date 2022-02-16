@@ -1,6 +1,5 @@
 import React from 'react';
-// import Login from '../logInOut/login';
-// import Logout from '../logInOut/logout';
+
 import {
     Nav,
     NavLink,
@@ -20,19 +19,5 @@ const Navbar = () => {
     );
 };
 
-
-// const Navbar = () => {
-//     return (
-//         <div className = "sum">
-//             <h1 className= "navbarLogo">Bookclub</h1>
-//                 <ul className= "navLinks">
-//                     <li className = "link">
-//                         <Link to= '/'>Home</Link>
-//                     </li>
-//                     <li><Link to= '/dashboard'>Dashboard</Link></li>
-//                 </ul>
-//         </div>
-//     );
-// };
 
 export default Navbar;
