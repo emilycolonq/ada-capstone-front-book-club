@@ -18,7 +18,7 @@ const NewMessageForm = (props) => {
         {
           message: userInputMessage,
           discussion_id: props.discussionId,
-          member_id: props.member.id, // This is currently hard-coded. TODO: GET from Member
+          member_id: props.member.id,
         }
       )
       .then((response) => {
