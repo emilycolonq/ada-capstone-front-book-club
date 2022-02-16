@@ -11,25 +11,12 @@ import { useParams, Outlet } from "react-router-dom";
 const axios = require("axios");
 
 const GroupPage = (props) => {
-  const [maxScore] = useState(props.page);
-  const [score, setScore] = useState(0);
-
-  useEffect(() => {
-    setScore((prevScore) => Math.max(0, Math.min(prevScore, maxScore)));
-  }, [maxScore]);
-
-  const fetchData = () => {
-    setScore((score) => score + 1);
-  };
-
-  const scoreLabel = `${score}/${maxScore}`;
-  const percentCorrect = (score * 100) / maxScore;
-  const percentCorrectLabel = `${Number(percentCorrect).toFixed(2)}%`;
 
   // Book State and Event Handlers
   const [bookAuthor, setBookAuthor] = useState("Book Author");
   const [bookTitle, setBookTitle] = useState("Book Title");
   const [groupName, setGroupName] = useState("Book Club");
+  const [bookPages, setBookPages] = useState(0);
   const [discussions, setDiscussions] = useState([]);
   const { groupId } = useParams();
 
@@ -44,13 +31,31 @@ const GroupPage = (props) => {
         setBookAuthor(response.data.book_author);
         setBookTitle(response.data.book_title);
         setGroupName(response.data.group_name);
+        setBookPages(response.data.book_pages);
         setDiscussions(response.data.discussions);
       })
       .catch((error) => {
         console.log("error:", error);
         console.log("error response:", error.response);
       });
-  }, [setBookAuthor, setBookTitle, setGroupName, setDiscussions, groupId]);
+  }, [setBookAuthor, setBookTitle, setGroupName, setBookPages, setDiscussions, groupId]);
+
+
+  const [maxScore] = useState(bookPages);
+  const [score, setScore] = useState(0);
+
+  useEffect(() => {
+    setScore((prevScore) => Math.max(0, Math.min(prevScore, maxScore)));
+  }, [maxScore]);
+
+  const fetchData = () => {
+    setScore((score) => score + 1);
+  };
+
+  const scoreLabel = `${score}/${maxScore}`;
+  const percentCorrect = (score * 100) / maxScore;
+  const percentCorrectLabel = `${Number(percentCorrect).toFixed(2)}%`;
+
 
   //     return (
   //         <div className="App">
@@ -95,7 +100,7 @@ const GroupPage = (props) => {
         <Col md={{ span: 6, offset: 0 }} sm={6} xs={6}>
           <h1>User Page Progress</h1>
           <div>
-            Page {score} out of {maxScore} total pages
+            Page {score} out of {bookPages} total pages
           </div>
           <ProgressBar
             animated
