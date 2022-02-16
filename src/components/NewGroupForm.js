@@ -7,6 +7,20 @@ import axios from "axios";
 
 const NewGroupForm = (props) => {
 
+    // const baseData = {group_name: '', book_title: props.title, book_author: props.author, book_pages:props.page };
+    // const [formData, setFormData] = useState(baseData);
+
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+
+    //     props.onGroupSubmit({group_name: formData.group_name, book_title: formData.book_title, book_author: formData.book_author, formData:formData.book_pages});
+    //     setFormData(baseData);
+    // }
+        
+    // const nameChange = (event) => {
+    //     setFormData({...formData, group_name: event.target.value});
+    // }
+
     const [formValue, setformValue] = React.useState({
         name: '',
         title: props.title ,
@@ -14,7 +28,9 @@ const NewGroupForm = (props) => {
         pages: props.page
     });
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(formValue)
         // store the states in the form data
         const groupFormData = new FormData();
         groupFormData.append("group_name", formValue.name)
@@ -36,7 +52,7 @@ const NewGroupForm = (props) => {
         }
     }
 
-    const handleChange = (event) => {
+    const nameChange = (event) => {
         setformValue({
             ...formValue,
             [event.target.name]: event.target.value
@@ -70,7 +86,7 @@ const NewGroupForm = (props) => {
                 type="text"
                 name="name"
                 value={formValue.name}
-                onChange={handleChange}
+                onChange={nameChange}
             />
         <button type="submit">
             Submit
@@ -169,4 +185,3 @@ export default NewGroupForm;
 //     }
 
 // export default NewGroupForm;
-
