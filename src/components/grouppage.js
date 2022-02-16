@@ -40,7 +40,6 @@ const GroupPage = (props) => {
         `https://ada-capstone-book-club.herokuapp.com/adabookclub/groups/${groupId}`
       )
       .then((response) => {
-        console.log(response.data);
         setBookAuthor(response.data.book_author);
         setBookTitle(response.data.book_title);
         setGroupName(response.data.group_name);

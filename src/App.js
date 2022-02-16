@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import { useRoutes, useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import Group from "./components/group";
@@ -13,16 +13,36 @@ import "bootstrap/dist/css/bootstrap.css";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
+  const [userInfo, setUserInfo] = useState({});
+  const [member, setMember] = useState({});
+
+  useEffect(() => {
+    const axios = require("axios");
+    if (!userInfo) {
+      return;
+    } else {
+      axios
+        .get(
+          `https://ada-capstone-book-club.herokuapp.com/adabookclub/members/get_member_by_email/?email=${userInfo.emailId}`
+        )
+        .then((response) => {
+          setMember(response.data);
+        });
+    }
+  }, [setMember, userInfo]);
   return (
     <div className="Logs" class="container-fluid">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="dashboard" element={<Dashboard />}>
+        <Route
+          path="dashboard"
+          element={<Dashboard setUserInfo={setUserInfo} userInfo={userInfo} />}
+        >
           <Route path="groups/:groupId" element={<GroupPage />} />
           <Route
             path="groups/:groupId/discussions/:discussionId"
-            element={<DiscussionThread />}
+            element={<DiscussionThread member={member} />}
           />
         </Route>
       </Routes>
