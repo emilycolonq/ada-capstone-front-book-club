@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./styles.css";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   return (
     <div
       style={
@@ -23,7 +23,10 @@ const Dashboard = () => {
       <Container>
         <Row className="justify-content-md-center">
           <Col md={{ span: 6, offset: 0 }} sm={6} xs={6}>
-            <GoogleLoginComponent />
+            <GoogleLoginComponent
+              userInfo={props.userInfo}
+              setUserInfo={props.setUserInfo}
+            />
           </Col>
         </Row>
         <Row>

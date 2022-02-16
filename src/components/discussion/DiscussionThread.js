@@ -73,6 +73,7 @@ const DiscussionThread = (props) => {
             messages={messages}
             setMessages={setMessages}
             discussionId={discussionId}
+            member={props.member}
           />
           <ul>{messagesList}</ul>
         </Col>

@@ -16,7 +16,7 @@ const Message = (props) => {
       <section className="message-text">
         {props.messageContent}
         <br />
-        Posted on {timestamp}
+        Posted on {timestamp} by Member ID: {props.messageObject.member_id}
       </section>
       <section id="options">
         <button
