@@ -8,14 +8,17 @@ const NewMessageForm = (props) => {
   const onSubmitMessageForm = (event) => {
     event.preventDefault();
     const axios = require("axios");
-    console.log(props.discussionId);
+
+    if (!props.member) {
+      return;
+    }
     axios
       .post(
         "https://ada-capstone-book-club.herokuapp.com/adabookclub/messages/",
         {
           message: userInputMessage,
           discussion_id: props.discussionId,
-          member_id: 1, // This is currently hard-coded. TODO: GET from Member
+          member_id: props.member.id, // This is currently hard-coded. TODO: GET from Member
         }
       )
       .then((response) => {
