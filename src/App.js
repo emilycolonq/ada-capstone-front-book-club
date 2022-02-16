@@ -15,7 +15,6 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   const [userInfo, setUserInfo] = useState({});
   const [member, setMember] = useState({});
-  console.log(userInfo);
 
   useEffect(() => {
     const axios = require("axios");
