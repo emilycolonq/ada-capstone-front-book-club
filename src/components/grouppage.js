@@ -51,9 +51,9 @@ const GroupPage = (props) => {
     setScore((score) => score + 1);
   };
 
-  const scoreLabel = `${score}/${maxScore}`;
-  const percentCorrect = (score * 100) / maxScore;
-  const percentCorrectLabel = `${Number(percentCorrect).toFixed(2)}%`;
+  const scoreLabel = `${score}/${bookPages}`;
+  // const percentCorrect = (score * 100) / maxScore;
+  // const percentCorrectLabel = `${Number(percentCorrect).toFixed(2)}%`;
 
 
   //     return (
@@ -108,18 +108,11 @@ const GroupPage = (props) => {
             now={score}
             label={scoreLabel}
           />
-          <div>Percentage finished</div>
-          <PercentBar label={percentCorrectLabel} percent={percentCorrect} />
+          {/* <div>Percentage finished</div>
+          <PercentBar label={percentCorrectLabel} percent={percentCorrect} /> */}
           <button type="button" onClick={() => fetchData()}>
             Add Page
           </button>
-        </Col>
-      </Row>
-      <Row className="justify-content-md-center">
-        <Col md={{ span: 6, offset: 0 }} sm={6} xs={6}>
-          <p>
-            {bookTitle} by {bookAuthor}
-          </p>
         </Col>
       </Row>
       <Row className="justify-content-md-center">
